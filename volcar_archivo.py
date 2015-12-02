@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from sys import argv
@@ -6,17 +6,17 @@ from os.path import exists
 
 script, origen, destino = argv
 
-print "Copiando de %s a %s." % (origen, destino)
+print("Copiando de {} a {}.".format(origen, destino))
 
 archivo_orig = open(origen).read()
 
-print "El archivo tiene un tamaño de %d bytes" % len(archivo_orig)
+print("El archivo tiene un tamaño de {} bytes".format(len(archivo_orig)))
 
 if exists(destino):
-	print "El archivo de destino [ %r ] ya existe. ¿Desea reemplazarlo?" % destino
-	print "Pulsa ENTER para continuar o CONTROL+C para cancelar..."
-	raw_input()
+    print("El archivo de destino [ {} ] ya existe. ¿Desea reemplazarlo?".format_map(destino))
+    print("Pulsa ENTER para continuar o CONTROL+C para cancelar...")
+    input()
 
 archivo_dest = open(destino, 'w').write(archivo_orig)
 
-print "Proceso de volcado: OK"
+print("Proceso de volcado: OK")
