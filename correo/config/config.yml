@@ -1,0 +1,15 @@
+correo:
+  emisor: tu-correo
+  receptor: 
+    - correo-destinatario-1
+    - correo-destinatario-2
+  asunto: asunto
+  mensaje: mensaje
+  adjunto: 
+    - adjunto-1
+    - adjunto-2
+
+servidor:
+  saliente: servidor-saliente
+  puerto: puerto
+  clave: clave
