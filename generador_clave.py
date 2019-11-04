@@ -14,11 +14,11 @@ import click
 
 @click.command()
 @click.option('-l', '--longitud', default=12, help='Longitud de la clave.')
-def generadorClave(longitud=12):
+def generador_clave(longitud=12):
     caracteres = string.ascii_letters + string.digits + string.punctuation
     clave = ''.join(choice(caracteres) for i in range(longitud))
     click.echo(clave)
 
 
 if __name__ == "__main__":
-    generadorClave()
+    generador_clave()
