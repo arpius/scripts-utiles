@@ -1,17 +1,24 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Script que genera una clave aleatoria que contiene letras mayúsculas,
-# minúsculas, números y signos.
-# Por defecto la longitud de la clave es de 8 caracteres.
+"""
+Script que genera una clave aleatoria que contiene letras mayúsculas,
+minúsculas, números y signos.
+Por defecto la longitud de la clave es de 12 caracteres.
+"""
 
 from random import choice
 import string
+import click
 
 
-def generadorClave(longitud=8):
+@click.command()
+@click.option('-l', '--longitud', default=12, help='Longitud de la clave.')
+def generadorClave(longitud=12):
     caracteres = string.ascii_letters + string.digits + string.punctuation
     clave = ''.join(choice(caracteres) for i in range(longitud))
-    return clave
+    click.echo(clave)
 
-print("Clave generada: {}".format(generadorClave(16)))
+
+if __name__ == "__main__":
+    generadorClave()
