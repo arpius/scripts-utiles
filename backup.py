@@ -37,6 +37,12 @@ def restore(snapshot, target):
         check=True)
 
 
+def unlock():
+    subprocess.run(
+        ['restic', '-r', repository, 'unlock'],
+        check=True)
+
+
 def menu():
     subprocess.run('clear')
 
@@ -46,10 +52,11 @@ def menu():
     op3 = '3) Delete backup.'
     op4 = '4) Reduce the amount of snapshots.'
     op5 = '5) Restore from a snapshot.'
-    op6 = '6) Exit.'
+    op6 = '6) Unlock the repository.'
+    op7 = '7) Exit.'
 
-    menu = '{:-^42}\n {}\n {}\n {}\n {}\n {}\n {}'.format(
-        title, op1, op2, op3, op4, op5, op6)
+    menu = '{:-^42}\n {}\n {}\n {}\n {}\n {}\n {}\n {}'.format(
+        title, op1, op2, op3, op4, op5, op6, op7)
 
     print(menu)
 
@@ -81,6 +88,9 @@ def main():
             restore(snapshot=snapshot, target=target)
             input(continue_text)
         elif option == '6':
+            unlock()
+            input(continue_text)
+        elif option == '7':
             print("See you!")
             break
         else:
